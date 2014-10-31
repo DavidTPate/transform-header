@@ -73,6 +73,10 @@
             });
         });
 
+        it('should be able to POST without an override to method', function (done) {
+            supertest(app).post('/').expect(200, 'Post', done);
+        });
+
         it('should be able to POST with an override to PUT', function (done) {
             supertest(app).post('/').set('X-HTTP-Method-Override', 'PUT').expect(200, 'Put', done);
         });
@@ -139,6 +143,10 @@
             app.use(function (req, res, next) {
                 res.status(500).end();
             });
+        });
+
+        it('should be able to GET without an override to Accept', function (done) {
+            supertest(app).get('/').set('Accept', 'text/html').expect(418, done);
         });
 
         it('should be able to GET with an override to Accept Json', function (done) {

@@ -30,7 +30,7 @@
         "should": "^13.1.0",
         "express": "^4.x",
         "body-parser": "^1.x",
-        "supertest": "^3.0.0"
+        "supertest": "^3.3.0"
     },
     "scripts": {
         "test": "mocha --check-leaks --bail --reporter spec test/",
